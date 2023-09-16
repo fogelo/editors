@@ -9,7 +9,17 @@ import { Heading } from "@ckeditor/ckeditor5-heading";
 import { Link } from "@ckeditor/ckeditor5-link";
 import { List } from "@ckeditor/ckeditor5-list";
 import { Paragraph } from "@ckeditor/ckeditor5-paragraph";
-
+import {
+  AutoImage,
+  Image,
+  ImageCaption,
+  ImageInsert,
+  ImageResize,
+  ImageStyle,
+  ImageToolbar,
+  ImageUpload,
+} from "@ckeditor/ckeditor5-image";
+import { Base64UploadAdapter } from "@ckeditor/ckeditor5-upload";
 // class Editor extends ClassicEditor {
 //   // Plugins to include in the build.
 //   static builtinPlugins = [
@@ -77,6 +87,15 @@ const App = () => {
         Link,
         List,
         Paragraph,
+        AutoImage,
+        Image,
+        ImageCaption,
+        ImageInsert,
+        ImageResize,
+        ImageStyle,
+        ImageToolbar,
+        ImageUpload,
+        Base64UploadAdapter,
       ],
 
       // So is the rest of the default configuration.
@@ -90,7 +109,42 @@ const App = () => {
         "blockQuote",
         "undo",
         "redo",
+        "insertImage",
       ],
+      image: {
+        // styles: ["alignCenter", "alignLeft", "alignRight"],
+        resizeOptions: [
+          {
+            name: "resizeImage:original",
+            label: "Default image width",
+            value: null,
+          },
+          {
+            name: "resizeImage:50",
+            label: "50% page width",
+            value: "50",
+          },
+          {
+            name: "resizeImage:75",
+            label: "75% page width",
+            value: "75",
+          },
+        ],
+        toolbar: [
+          "imageTextAlternative",
+          "toggleImageCaption",
+          "|",
+          "imageStyle:inline",
+          "imageStyle:wrapText",
+          "imageStyle:breakText",
+          "imageStyle:side",
+          "|",
+          "resizeImage",
+        ],
+        insert: {
+          integrations: ["insertImageViaUrl"],
+        },
+      },
     })
       .then((editor) => {
         console.log(editor);

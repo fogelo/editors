@@ -33,6 +33,15 @@ module.exports = {
         use: ["raw-loader"],
       },
       {
+        test: /\.(ico|png|jpe?g|svg|gif)$/,
+        exclude: /ckeditor5-[^/\\]+[/\\]theme[/\\]icons[/\\][^/\\]+\.svg$/,
+        type: "asset/resource",
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)$/i,
+        type: "asset/resource",
+      },
+      {
         test: /ckeditor5-[^/\\]+[/\\]theme[/\\].+\.css$/,
         use: [
           {

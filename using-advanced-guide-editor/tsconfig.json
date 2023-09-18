@@ -9,7 +9,7 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx", //позволяет опустить импорт React из каждого компонента
-
+    "noEmitOnError": false, // позволяет выдавать генерировать выходные файлы даже при наличии ошибок
     // блок настроек строгости (strict: true)
     "noImplicitAny": false, //требует всегда указывать тип (any),
     "strictNullChecks": true, //требует делать проверки на null и undefined
